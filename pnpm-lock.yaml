@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      delay:
+        specifier: ^7.0.0
+        version: 7.0.0
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -133,6 +137,10 @@ packages:
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
 
+  delay@7.0.0:
+    resolution: {integrity: sha512-C3vaGs818qzZjCvVJ98GQUMVyWeg7dr5w2Nwwb2t5K8G98jOyyVO2ti2bKYk5yoYElqH3F2yA53ykuEnwD6MCg==}
+    engines: {node: '>=20'}
+
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
@@ -241,6 +249,10 @@ packages:
     resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
     engines: {node: ^10 || ^12 || >=14}
 
+  random-int@3.1.0:
+    resolution: {integrity: sha512-h8CRz8cpvzj0hC/iH/1Gapgcl2TQ6xtnCpyOI5WvWfXf/yrDx2DOU+tD9rX23j36IF11xg1KqB9W11Z18JPMdw==}
+    engines: {node: '>=12'}
+
   rolldown@1.0.0-rc.18:
     resolution: {integrity: sha512-phmyKBpuBdRYDf4hgyynGAYn/rDDe+iZXKVJ7WX5b1zQzpLkP5oJRPGsfJuHdzPMlyyEO/4sPW6yfSx2gf7lVg==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -256,6 +268,10 @@ packages:
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  unlimited-timeout@0.1.0:
+    resolution: {integrity: sha512-D4g+mxFeQGQHzCfnvij+R35ukJ0658Zzudw7j16p4tBBbNasKkKM4SocYxqhwT5xA7a9JYWDzKkEFyMlRi5sng==}
+    engines: {node: '>=20'}
 
   vite@8.0.11:
     resolution: {integrity: sha512-Jz1mxtUBR5xTT65VOdJZUUeoyLtqljmFkiUXhPTLZka3RDc9vpi/xXkyrnsdRcm2lIi3l3GPMnAidTsEGIj3Ow==}
@@ -383,6 +399,11 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  delay@7.0.0:
+    dependencies:
+      random-int: 3.1.0
+      unlimited-timeout: 0.1.0
+
   detect-libc@2.1.2: {}
 
   fdir@6.5.0(picomatch@4.0.4):
@@ -453,6 +474,8 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  random-int@3.1.0: {}
+
   rolldown@1.0.0-rc.18:
     dependencies:
       '@oxc-project/types': 0.128.0
@@ -483,6 +506,8 @@ snapshots:
 
   tslib@2.8.1:
     optional: true
+
+  unlimited-timeout@0.1.0: {}
 
   vite@8.0.11:
     dependencies:
