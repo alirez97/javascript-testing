@@ -41,3 +41,7 @@ export function validateUserInput(username, age) {
 
   return errors.length === 0 ? 'Validation successful' : errors.join(', ');
 }
+
+export function isPriceInRange(price, min, max) {
+  return price >= min && price <= max;
+}
