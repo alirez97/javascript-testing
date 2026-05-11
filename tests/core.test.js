@@ -26,23 +26,4 @@ describe("getCoupons", () => {
       expect(coupon.discount).toBeLessThanOrEqual(1);
     });
   });
-
-  // coupons.map((coupon) => {
-  //   it("should have code property", () => {
-  //     expect(coupon).toHaveProperty("code");
-  //   });
-  //   it("should have discount property", () => {
-  //     expect(coupon).toHaveProperty("discount");
-  //   });
-  //   it("code should be string", () => {
-  //     expect(typeof coupon.code).toBe("string");
-  //   });
-  //   it("discount should be number", () => {
-  //     expect(typeof coupon.discount).toBe("number");
-  //   });
-  //   it("discount should be between 0 and 1", () => {
-  //     expect(coupon.discount).toBeGreaterThanOrEqual(0);
-  //     expect(coupon.discount).toBeLessThanOrEqual(1);
-  //   });
-  // });
 });
