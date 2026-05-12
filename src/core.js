@@ -67,3 +67,14 @@ export function canDrive(age, countryCode) {
 
   return age >= legalDrivingAge[countryCode];
 }
+
+export function fetchData() {
+  // return Promise.reject({ reason: 'Operation failed' });
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const data = [1, 2, 3];
+      resolve(data);
+    });
+  });
+}
