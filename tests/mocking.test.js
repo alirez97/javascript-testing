@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi , test} from 'vitest';
 import { trackPageView } from '../src/libs/analytics';
 import { getExchangeRate } from '../src/libs/currency';
 import { sendEmail } from '../src/libs/email';
