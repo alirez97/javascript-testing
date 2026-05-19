@@ -25,7 +25,7 @@ export function isStrongPassword(password: string): boolean {
   );
 }
 
-type CartItem = {
+export type CartItem = {
   name: string;
   price: number;
   quantity: number;
@@ -49,4 +49,41 @@ export function calculateCartTotal(items: CartItem[]): number {
   }, 0);
 
   return total >= 500 ? total * 0.9 : total;
+}
+
+export type LoginResponse = {
+  success: boolean;
+  user: { email: string };
+};
+
+export type User = {
+  email: string;
+  password: string;
+};
+
+export const users: User[] = [
+  {
+    email: 'ali@example.com',
+    password: '123456',
+  },
+  {
+    email: 'sara@example.com',
+    password: 'abcdef',
+  },
+];
+
+export function login(email: string, password: string): LoginResponse {
+  const normalizedEmail = email.trim().toLowerCase();
+
+  if (!normalizedEmail) throw new Error('Email is required!');
+
+  if (!password) throw new Error('Password is required!');
+
+  const user = users.find((u) => u.email === normalizedEmail);
+
+  if (!user) throw new Error('User not found!');
+
+  if (user.password !== password) throw new Error('Invalid password');
+
+  return { success: true, user: { email: user.email } };
 }

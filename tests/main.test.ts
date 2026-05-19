@@ -4,6 +4,7 @@ import {
   calculateDiscount,
   CartItem,
   isStrongPassword,
+  login,
 } from '../src/main.js';
 
 describe('calculateDiscount', () => {
@@ -88,5 +89,32 @@ describe('calculateCartTotal', () => {
     ];
 
     expect(() => calculateCartTotal(items)).toThrow(/greater than zero/i);
+  });
+});
+
+describe('login', () => {
+  it('should throw an error if email is empty', () => {
+    expect(() => login('', '1111')).toThrow(/email is required/i);
+  });
+
+  it('should throw an error if password is empty', () => {
+    expect(() => login('ali@example.com', '')).toThrow(/password is required/i);
+  });
+
+  it('should throw an error if user does not exist', () => {
+    expect(() => login('alireza@domain.com', '1111')).toThrow(/not found/i);
+  });
+
+  it('should throw an error if password is incorrect', () => {
+    expect(() => login('ali@example.com', 'wrong')).toThrow(/invalid/i);
+  });
+
+  it('should return success if user is valid', () => {
+    const result = login('ali@example.com', '123456');
+
+    expect(result).toEqual({
+      success: true,
+      user: { email: 'ali@example.com' },
+    });
   });
 });
