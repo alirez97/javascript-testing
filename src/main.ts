@@ -24,3 +24,29 @@ export function isStrongPassword(password: string): boolean {
     hasMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar
   );
 }
+
+type CartItem = {
+  name: string;
+  price: number;
+  quantity: number;
+};
+
+export function calculateCartTotal(items: CartItem[]): number {
+  if (items.length === 0) {
+    return 0;
+  }
+
+  const total = items.reduce((sum, item) => {
+    if (item.price < 0) {
+      throw new Error('Price cannot be negative');
+    }
+
+    if (item.quantity <= 0) {
+      throw new Error('Quantity must be greater than zero');
+    }
+
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  return total >= 500 ? total * 0.9 : total;
+}
